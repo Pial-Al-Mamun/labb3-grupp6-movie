@@ -20,5 +20,71 @@
       "id": 5,
       "title": "A Quiet Place"
     }
+  ],
+  "comedy": [
+    {
+      "id": 1,
+      "title": "The Hangover"
+    },
+    {
+      "id": 2,
+      "title": "Superbad"
+    },
+    {
+      "id": 3,
+      "title": "Step Brothers"
+    },
+    {
+      "id": 4,
+      "title": "Anchorman: The Legend of Ron Burgundy"
+    },
+    {
+      "id": 5,
+      "title": "Bridesmaids"
+    }
+  ],
+  "action": [
+    {
+      "id": 1,
+      "title": "Die Hard"
+    },
+    {
+      "id": 2,
+      "title": "Mad Max: Fury Road"
+    },
+    {
+      "id": 3,
+      "title": "The Dark Knight"
+    },
+    {
+      "id": 4,
+      "title": "Gladiator"
+    },
+    {
+      "id": 5,
+      "title": "The Avengers"
+    }
+  ],
+  "drama": [
+    {
+      "id": 1,
+      "title": "The Shawshank Redemption"
+    },
+    {
+      "id": 2,
+      "title": "Forrest Gump"
+    },
+    {
+      "id": 3,
+      "title": "The Godfather"
+    },
+    {
+      "id": 4,
+      "title": "Fight Club"
+    },
+    {
+      "id": 5,
+      "title": "The Social Network"
+    }
   ]
 }
