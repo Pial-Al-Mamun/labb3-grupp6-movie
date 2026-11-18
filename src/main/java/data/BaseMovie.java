@@ -1,16 +1,14 @@
 package data;
 
-public class Movie {
+public abstract class BaseMovie {
     protected int id;
 
     protected String title;
-
-    public Movie() {
-    }
-
-    public Movie(int id, String title) {
+    public BaseMovie() {}
+    public BaseMovie(int id, String title) {
         this.id = id;
         this.title = title;
+
     }
 
     public int getId() {
@@ -24,4 +22,5 @@ public class Movie {
     public void setTitle(String title) {
         this.title = title;
     }
+
 }
