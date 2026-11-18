@@ -14,6 +14,9 @@ public abstract class BaseMovieStorage<T extends BaseMovie> implements MovieStor
 
     @Override
     public void save(T movie) {
+        if (findById(movie.getId()) != null) {
+            return;
+        }
         movies.add(movie);
     }
 
