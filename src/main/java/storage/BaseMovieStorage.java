@@ -1,68 +1,40 @@
 package storage;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import data.Movie;
+import data.BaseMovie;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
-import java.util.Map;
 
-public abstract class BaseMovieStorage<T extends Movie> implements MovieStorage<T>, AutoCloseable {
-    protected String genreKey;
-    protected final URI path;
+public abstract class BaseMovieStorage<T extends BaseMovie> implements MovieStorage<T>{
 
-    private List<T> movies;
+    private final List<T> movies;
 
-    public BaseMovieStorage(String path, String genreKey) throws IOException {
-        this.path = URI.create(path);
-        this.genreKey = genreKey;
-
-        var file = Path.of(this.path);
-
-        var fileExists = file.toFile().exists();
-
-        if (!fileExists) {
-            throw new IOException("File not found: " + this.path);
-        }
-
-        var fileContent = Files.readAllLines(file);
-
-        var objectMapper = new ObjectMapper();
-
-        var movieMap = objectMapper.readValue(
-                fileContent.toString(),
-                new TypeReference<Map<String, List<Movie>>>() {
-                }
-        );
-
-        this.movies = (List<T>) movieMap.get(genreKey);
+    public BaseMovieStorage(List<T> movies) {
+        this.movies = movies;
     }
 
     @Override
-    public void save(T movie) throws IOException {
+    public void save(T movie) {
+        movies.add(movie);
+    }
+
+    protected abstract T createMovie(int id, String title);
+
+    public T createAndSaveMovie(int id, String title) {
+        T movie = createMovie(id, title);
+        save(movie);
+        return movie;
     }
 
     @Override
-    public List<T> findAll() throws IOException {
-        return List.of();
+    public List<T> findAll() {
+        return movies;
     }
 
     @Override
-    public T findById(int id) throws IOException {
+    public T findById(int id) {
         return movies.stream()
                 .filter(movie -> movie.getId() == id)
                 .findFirst()
                 .orElse(null);
-    }
-
-    @Override
-    public void close() throws Exception {
-        // Implementation for closing the storage
     }
 }

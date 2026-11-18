@@ -1,0 +1,24 @@
+{
+  "horror": [
+    {
+      "id": 1,
+      "title": "The Thing"
+    },
+    {
+      "id": 2,
+      "title": "Alien"
+    },
+    {
+      "id": 3,
+      "title": "Rosemary's Baby"
+    },
+    {
+      "id": 4,
+      "title": "A Nightmare on Elm Street"
+    },
+    {
+      "id": 5,
+      "title": "A Quiet Place"
+    }
+  ]
+}
